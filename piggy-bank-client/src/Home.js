@@ -12,7 +12,7 @@ function Home() {
   const [withdrawValue, setWithdrawValue] = useState(0);
   
   const dispatchDeposit = async () => {
-    axios.put('http://localhost:5000/accounts/' + id, {
+    axios.put('/accounts/' + id, {
       balance: balance + depositValue
     }).then(res => {
       dispatch(deposit(depositValue));
@@ -22,7 +22,7 @@ function Home() {
   }
 
   const dispatchWithdraw = async () => {
-    axios.put('http://localhost:5000/accounts/' + id, {
+    axios.put('/accounts/' + id, {
       balance: balance - withdrawValue
     }).then(res => {
       dispatch(withdraw(withdrawValue));

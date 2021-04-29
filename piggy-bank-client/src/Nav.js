@@ -11,14 +11,14 @@ function Nav() {
   const [idValue, setIdValue] = useState(0);
 
   const dispatchChange = async () => {
-    axios.get('http://localhost:5000/accounts/' + idValue)
+    axios.get('/accounts/' + idValue)
       .then(res => {
         if (res.data !== "") {
           dispatch(change(idValue));
           dispatch(withdraw(balance));
           dispatch(deposit(parseFloat(res.data.balance)));
         } else {
-          axios.post('http://localhost:5000/accounts', {
+          axios.post('/accounts', {
             owner: idValue,
             balance: 0
           }).then(res => {

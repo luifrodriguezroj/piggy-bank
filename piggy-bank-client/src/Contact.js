@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function Contact() {
   const sendEmail = async () => {
-    axios.post('http://localhost:5000/contact', {
+    axios.post('/contact', {
       email: document.getElementById("email-1").value,
       subject: document.getElementById("subject").value,
       content: document.getElementById("content").value
