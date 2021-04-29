@@ -13,6 +13,7 @@ mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useCreateIn
 });
 
 const accountsRouter = require('./routes/accounts');
+const { lock } = require("./routes/accounts");
 app.use('/accounts', accountsRouter);
 
 app.post('/contact', async (req, res) => {
@@ -47,4 +48,5 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-app.listen(process.env.PORT || 5000);
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log("Server running on port: " + PORT));
